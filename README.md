@@ -1,6 +1,6 @@
-# PHP Run
+# Custom Gutenberg Blocks
 
-WordPress PHP editor for running code from dashboard for administrators. Code and run PHP scripts.
+Just learning stuff
 
 > This plugin uses eval php function. If you don't understand every script that you evaluate don't use this plugin. You can harm your website. This plugin is for developers only.
 
