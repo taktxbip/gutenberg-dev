@@ -1,14 +1,19 @@
-import './main-admin.scss';
-'use strict';
+// import './main-admin.scss';
+// 'use strict';
 
-import hljs from 'highlight.js/lib/core';
-import php from 'highlight.js/lib/languages/php';
+// const { registerBlockType } = wp.blocks.registerBlockType;
+// registerBlockType("evnomad/myblock", {
+//   edit: () => {
+//     return 'Edit';
+//   },
+//   save: () => {
+//     return 'Save';
+//   }
+// });
 
-import { highlightCode, defaultAjax } from './modules/helpers';
+// (function ($) {
 
-(function ($) {
-    $(function () {
-      
-    });
+//   $(function () {
+//   });
 
-})(jQuery);
+// })(jQuery);

@@ -61,13 +61,13 @@ module.exports = (env, argv) => {
                 new CleanWebpackPlugin(),
                 new MiniCSSExtractPlugin({
                     filename: `[name]/${package.name}-[name].min.css`
-                }),
-                new WebpackShellPluginNext({
-                    onBuildEnd: {
-                        scripts: runShell(),
-                        blocking: false
-                    }
                 })
+                // new WebpackShellPluginNext({
+                //     onBuildEnd: {
+                //         scripts: runShell(),
+                //         blocking: false
+                //     }
+                // })
             );
         }
         return plugins;
@@ -84,7 +84,8 @@ module.exports = (env, argv) => {
     return {
         mode: argv.mode,
         entry: {
-            admin: './src/admin/index-admin.js'
+            admin: './src/admin/index-admin.js',
+            front: './src/frontend/index-front.js'
         },
         externals: {
             jquery: 'jQuery',

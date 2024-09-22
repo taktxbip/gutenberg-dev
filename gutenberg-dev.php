@@ -32,6 +32,7 @@ class GDev
 
     $this->require();
 
+    add_action('wp_enqueue_scripts', [$this, 'wp_enqueue_scripts']);
     add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
     add_action('init', [$this, 'init']);
   }
@@ -41,7 +42,21 @@ class GDev
     require_once __DIR__ . '/inc/helpers.php';
   }
 
-  public function init() {}
+  public function init()
+  {
+    register_block_type_from_metadata(__DIR__);
+  }
+
+  public function wp_enqueue_scripts()
+  {
+    wp_enqueue_style($this->plugin_domain . '-styles', plugin_dir_url(__FILE__) . 'assets/front/' . $this->plugin_domain . '-front.min.css', [], $this->version);
+    wp_enqueue_script($this->plugin_domain . '-scripts', plugin_dir_url(__FILE__) . 'assets/front/' . $this->plugin_domain . '-front.min.js', ['jquery'], $this->version, true);
+
+    wp_localize_script($this->plugin_domain . '-scripts', $this->plugin_lower_domain . '_ajax', [
+      'url' => admin_url('admin-ajax.php'),
+      'nonce' => wp_create_nonce('myajax-nonce')
+    ]);
+  }
 
   public function admin_enqueue_scripts()
   {
